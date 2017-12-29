@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>GrapesJS</title>
+    <link rel="stylesheet" href="dist/css/grapes.min.css">
+	 <link rel="stylesheet" href="https://unpkg.com/grapesjs/dist/css/grapes.min.css">
+    <script src="dist/grapes.min.js"></script>
+    <script src="https://unpkg.com/grapesjs"></script>
+	<script src="dist/grapesjs-plugin-forms.min.js"></script>
+    <style>
+      body, html{ height: 100%; margin: 0;text-align:center;}
+
+      .gjs-block-svg {
+          width: 61%;
+      }
+
+      .gjs-block-svg-path {
+        fill: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="gjs" style="height:0px; overflow:hidden;text-align:center">
+  
+      <style>
+      </style>
+      
+    </div>
+
+    <script type="text/javascript">
+      
+
+	   var editor = grapesjs.init({
+        showOffsets: 1,
+        noticeOnUnload: 0,
+        container: '#gjs',
+        height: '100%',
+        fromElement: true,
+		//plugins: ['gjs-plugin-forms'],
+        storageManager: { autoload:1 },
+		
+      });
+
+      editor.BlockManager.add('testBlock', {
+        label: 'Test Block',
+        attributes: { class:'gjs-fonts gjs-f-b1' },
+        content: `<div style="padding-top:50px; padding-bottom:50px; text-align:center"><h2>Basic Form </h2><form class="form" data-highlightable="1"><div class="form-group" data-highlightable="1"><label class="label" data-highlightable="1">Name</label><input class="input" placeholder="Type here your name" id="name" data-highlightable="1"></div><div class="form-group" data-highlightable="1"><label class="label" data-highlightable="1">Email</label><input class="input" id="email" type="email" placeholder="Type here your email" data-highlightable="1"></div><div class="form-group" data-highlightable="1"><div class="form-group" data-highlightable="1"><label class="label" data-highlightable="1">Message</label><textarea class="textarea" data-highlightable="1" id="textarea2"></textarea></div><div class="form-group" data-highlightable="1"><button class="button" type="button" data-highlightable="1" id="form_sub" onClick="alert('1. Name: '+document.getElementById('name').value+'     2. Email:'+document.getElementById('email').value+'   3. text:'+document.getElementById('textarea2').value)">Send</button></div></form></div>`
+      });
+	  
+    </script>
+  </body>
+</html>
